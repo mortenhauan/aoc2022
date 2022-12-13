@@ -1,0 +1,1 @@
+window.ALL_CRATES = ["atty","calendar","colored","day01","day02","day03","day04","day05","lazy_static","libc"];

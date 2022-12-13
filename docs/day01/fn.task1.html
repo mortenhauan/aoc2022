@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Part 1"><meta name="keywords" content="rust, rustlang, rust-lang, task1"><title>task1 in day01 - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../normalize.css"><link rel="stylesheet" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../ayu.css" disabled><link rel="stylesheet" href="../dark.css" disabled><link rel="stylesheet" href="../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../storage.js"></script><script defer src="sidebar-items.js"></script><script defer src="../main.js"></script><noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../favicon.svg"></head><body class="rustdoc fn"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../day01/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../day01/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div></a><div class="sidebar-elems"><h2 class="location"><a href="index.html">In day01</a></h2></div></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../day01/index.html"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="main-heading"><h1 class="fqn"><span class="in-band">Function <a href="index.html">day01</a>::<wbr><a class="fn" href="#">task1</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../clipboard.svg" width="19" height="18" alt="Copy item path"></button></span></h1><span class="out-of-band"><a class="srclink" href="../src/day01/lib.rs.html#89-99">source</a> · <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span></div><div class="docblock item-decl"><pre class="rust fn"><code>pub fn task1(data: &amp;<a class="primitive" href="https://doc.rust-lang.org/1.65.0/std/primitive.str.html">str</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/1.65.0/std/primitive.u32.html">u32</a></code></pre></div><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><h2 id="part-1"><a href="#part-1">Part 1</a></h2>
+<p>The jungle must be too overgrown and difficult to navigate in vehicles
+or access from the air; the Elves’ expedition traditionally goes on foot.
+As your boats approach land, the Elves begin taking inventory of their
+supplies. One important consideration is food - in particular, the number
+of Calories each Elf is carrying (your puzzle input).</p>
+<p>The Elves take turns writing down the number of Calories contained by
+the various meals, snacks, rations, etc. that they’ve brought with them,
+one item per line. Each Elf separates their own inventory from the
+previous Elf’s inventory (if any) by a blank line.</p>
+<p>For example, suppose the Elves finish writing their items’ Calories
+and end up with the following list:</p>
+<div class="example-wrap"><pre class="language-text"><code>1000
+2000
+3000
+
+4000
+
+5000
+6000
+
+7000
+8000
+9000
+
+10000</code></pre></div>
+<p>This list represents the Calories of the food carried by five Elves:</p>
+<ul>
+<li>The first Elf is carrying food with <code>1000</code>, <code>2000</code>, and <code>3000</code> Calories,
+a total of <code>6000</code> Calories.</li>
+<li>The second Elf is carrying one food item with <code>4000</code> Calories.</li>
+<li>The third Elf is carrying food with <code>5000</code> and <code>6000</code> Calories, a total
+of <code>11000</code> Calories.</li>
+<li>The fourth Elf is carrying food with <code>7000</code>, <code>8000</code>, and <code>9000</code> Calories,
+a total of <code>24000</code> Calories.</li>
+<li>The fifth Elf is carrying one food item with <code>10000</code> Calories.</li>
+</ul>
+<p>In case the Elves get hungry and need extra snacks, they need to know which
+Elf to ask: they’d like to know how many Calories are being carried by the Elf
+carrying the most Calories. In the example above, this is <code>24000</code> (carried
+by the fourth Elf).</p>
+<h2 id="example"><a href="#example">Example</a></h2>
+<p>Find the Elf carrying the most Calories. <strong>How many total Calories is that Elf carrying?</strong></p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">let </span>input = <span class="string">&quot;1000
+2000
+3000
+
+4000
+
+5000
+6000
+
+7000
+8000
+9000
+
+10000&quot;</span>;
+
+<span class="kw">let </span>result = task1(input);
+<span class="macro">assert_eq!</span>(result, <span class="number">24000</span>);</code></pre></div>
+</div></details></section></div></main><div id="rustdoc-vars" data-root-path="../" data-current-crate="day01" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0 (897e37553 2022-11-02)" ></div></body></html>
