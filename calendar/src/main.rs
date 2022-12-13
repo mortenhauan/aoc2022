@@ -9,11 +9,11 @@ fn main() {
     let task_timer = Instant::now();
     println!("\n{}", "Day 1".green().bold());
     println!(
-        "The Elf carrying the most calories has {} calories",
+        "Task1: {}",
         day01::task1(include_str!("../input/day01.txt"))
     );
     println!(
-        "The three Elfs carrying the most callories has a total of {} calories",
+        "Task2: {}",
         day01::task2(include_str!("../input/day01.txt"))
     );
     let duration = task_timer.elapsed();
@@ -23,11 +23,11 @@ fn main() {
     let task_timer = Instant::now();
     println!("\n{}", "Day 2".green().bold());
     println!(
-        "If I follow my guessed strategy guide, I will get a score of {}",
+        "Task1: {}",
         day02::task1(include_str!("../input/day02.txt"))
     );
     println!(
-        "If I follow my correct strategy guide, I will get a score of {}",
+        "Task2: {}",
         day02::task2(include_str!("../input/day02.txt"))
     );
     let duration = task_timer.elapsed();
@@ -37,16 +37,31 @@ fn main() {
     let task_timer = Instant::now();
     println!("\n{}", "Day 3".green().bold());
     println!(
-        "The sum of priorities for items are: {}",
+        "Task1: {}",
         day03::task1(include_str!("../input/day03.txt"))
     );
     println!(
-        "The sum of priorities for badges are: {}",
+        "Task2: {}",
         day03::task2(include_str!("../input/day03.txt"))
     );
     let duration = task_timer.elapsed();
     println!("Time used on Day 03: {:?}", duration);
 
+    // Day 04
+    let task_timer = Instant::now();
+    println!("\n{}", "Day 4".green().bold());
+    println!(
+        "Task1: {}",
+        day04::task1(include_str!("../input/day04.txt"))
+    );
+    println!(
+        "Task2: {}",
+        day04::task2(include_str!("../input/day04.txt"))
+    );
+    let duration = task_timer.elapsed();
+    println!("Time used on Day 04: {:?}", duration);
+
+    // Summary
     let duration = calendar_timer.elapsed();
     println!("\nTime used on Advent of Code 2022: {:?}", duration);
 }
