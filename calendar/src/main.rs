@@ -1,6 +1,4 @@
 use colored::Colorize;
-use day01;
-use day02;
 
 fn main() {
     println!("{}", "Advent of Code 2022".purple().bold());
@@ -25,5 +23,16 @@ fn main() {
     println!(
         "If I follow my correct strategy guide, I will get a score of {}",
         day02::task2(include_str!("../input/day02.txt"))
+    );
+
+    // Day 03
+    println!("\n{}", "Day 3".green().bold());
+    println!(
+        "The sum of priorities for items are: {}",
+        day03::task1(include_str!("../input/day03.txt"))
+    );
+    println!(
+        "The sum of priorities for badges are: {}",
+        day03::task2(include_str!("../input/day03.txt"))
     );
 }
