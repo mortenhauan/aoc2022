@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Part Two"><meta name="keywords" content="rust, rustlang, rust-lang, part2"><title>part2 in day07 - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../normalize.css"><link rel="stylesheet" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../ayu.css" disabled><link rel="stylesheet" href="../dark.css" disabled><link rel="stylesheet" href="../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../storage.js"></script><script defer src="sidebar-items.js"></script><script defer src="../main.js"></script><noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../favicon.svg"></head><body class="rustdoc fn"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../day07/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div></a><h2></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../day07/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div></a><div class="sidebar-elems"><h2><a href="index.html">In day07</a></h2></div></nav><main><div class="width-limiter"><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="main-heading"><h1 class="fqn">Function <a href="index.html">day07</a>::<wbr><a class="fn" href="#">part2</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../clipboard.svg" width="19" height="18" alt="Copy item path"></button></h1><span class="out-of-band"><a class="srclink" href="../src/day07/lib.rs.html#308-317">source</a> · <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span></div><div class="item-decl"><pre class="rust fn"><code>pub fn part2(input: &amp;<a class="primitive" href="https://doc.rust-lang.org/1.66.0/std/primitive.str.html">str</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/1.66.0/std/primitive.usize.html">usize</a></code></pre></div><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><h2 id="part-two"><a href="#part-two">Part Two</a></h2>
+<p>Now, you’re ready to choose a directory to delete.</p>
+<p>The total disk space available to the filesystem is <code>70000000</code>. To run the
+update, you need unused space of at least <code>30000000</code>. You need to find a
+directory you can delete that will <strong>free up enough space</strong> to run the
+update.</p>
+<p>In the example above, the total size of the outermost directory (and thus
+the total amount of used space) is <code>48381165</code>; this means that the size of
+the <strong>unused</strong> space must currently be <code>21618835</code>, which isn’t quite the
+<code>30000000</code> required by the update. Therefore, the update still requires a
+directory with total size of at least <code>8381165</code> to be deleted before it can
+run.</p>
+<p>To achieve this, you have the following options:</p>
+<ul>
+<li>Delete directory <code>e</code>, which would increase unused space by <code>584</code>.</li>
+<li>Delete directory <code>a</code>, which would increase unused space by <code>94853</code>.</li>
+<li>Delete directory <code>d</code>, which would increase unused space by <code>24933642</code>.</li>
+<li>Delete directory <code>/,</code> which would increase unused space by <code>48381165</code>.</li>
+</ul>
+<p>Directories <code>e</code> and <code>a</code> are both too small; deleting them would not free up
+enough space. However, directories <code>d</code> and <code>/</code> are both big enough! Between
+these, choose the <strong>smallest</strong>: <code>d</code>, increasing unused space by <code>24933642</code>.</p>
+<h2 id="example"><a href="#example">Example</a></h2>
+<p>Find the smallest directory that, if deleted, would free up enough space on
+the filesystem to run the update. <strong>What is the total size of that directory?</strong></p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">let </span>input = <span class="string">&quot;$ cd /
+$ ls
+dir a
+14848514 b.txt
+8504156 c.dat
+dir d
+$ cd a
+$ ls
+dir e
+29116 f
+2557 g
+62596 h.lst
+$ cd e
+$ ls
+584 i
+$ cd ..
+$ cd ..
+$ cd d
+$ ls
+4060174 j
+8033020 d.log
+5626152 d.ext
+7214296 k&quot;</span>;
+
+<span class="macro">assert_eq!</span>(part2(input), <span class="number">24933642</span>);</code></pre></div>
+</div></details></section></div></main><div id="rustdoc-vars" data-root-path="../" data-current-crate="day07" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>
