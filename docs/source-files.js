@@ -4,6 +4,7 @@ var sourcesIndex = JSON.parse('{\
 "day02":["",[],["lib.rs"]],\
 "day03":["",[],["lib.rs"]],\
 "day04":["",[],["lib.rs"]],\
-"day05":["",[],["lib.rs"]]\
+"day05":["",[],["lib.rs"]],\
+"day06":["",[],["lib.rs"]]\
 }');
 createSourceSidebar();

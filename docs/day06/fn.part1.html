@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Part One"><meta name="keywords" content="rust, rustlang, rust-lang, part1"><title>part1 in day06 - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../normalize.css"><link rel="stylesheet" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../ayu.css" disabled><link rel="stylesheet" href="../dark.css" disabled><link rel="stylesheet" href="../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../storage.js"></script><script defer src="sidebar-items.js"></script><script defer src="../main.js"></script><noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../favicon.svg"></head><body class="rustdoc fn"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../day06/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div></a><h2></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../day06/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div></a><div class="sidebar-elems"><h2><a href="index.html">In day06</a></h2></div></nav><main><div class="width-limiter"><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="main-heading"><h1 class="fqn">Function <a href="index.html">day06</a>::<wbr><a class="fn" href="#">part1</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../clipboard.svg" width="19" height="18" alt="Copy item path"></button></h1><span class="out-of-band"><a class="srclink" href="../src/day06/lib.rs.html#81-83">source</a> · <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span></div><div class="item-decl"><pre class="rust fn"><code>pub fn part1(input: &amp;<a class="primitive" href="https://doc.rust-lang.org/1.66.0/std/primitive.str.html">str</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/1.66.0/std/primitive.usize.html">usize</a></code></pre></div><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><h2 id="part-one"><a href="#part-one">Part One</a></h2>
+<p>To be able to communicate with the Elves, the device needs to lock on to
+their signal. The signal is a series of seemingly-random characters that
+the device receives one at a time.</p>
+<p>To fix the communication system, you need to add a subroutine to the device
+that detects a start-of-packet marker in the datastream. In the protocol
+being used by the Elves, the start of a packet is indicated by a sequence
+of four characters that are all different.</p>
+<p>The device will send your subroutine a datastream buffer (your puzzle
+input); your subroutine needs to identify the first position where the
+four most recently received characters were all different. Specifically,
+it needs to report the number of characters from the beginning of the
+buffer to the end of the first such four-character marker.</p>
+<p>For example, suppose you receive the following datastream buffer:</p>
+<p><code>mjqjpqmgbljsphdztnvjfqwrcgsmlb</code></p>
+<p>After the first three characters (mjq) have been received, there haven’t
+been enough characters received yet to find the marker. The first time a
+marker could occur is after the fourth character is received, making the
+most recent four characters <code>mjqj</code>. Because <code>j</code> is repeated, this isn’t a
+marker.</p>
+<p>The first time a marker appears is after the <strong>seventh</strong> character arrives.
+Once it does, the last four characters received are <code>jpqm</code>, which are all
+different. In this case, your subroutine should report the value <code>7</code>, because
+the first start-of-packet marker is complete after <code>7</code> characters have been
+processed.</p>
+<p>Here are a few more examples:</p>
+<ul>
+<li><code>bvwbjplbgvbhsrlpgdmjqwftvncz</code>: first marker after character <code>5</code></li>
+<li><code>nppdvjthqldpwncqszvftbrmjlhg</code>: first marker after character <code>6</code></li>
+<li><code>nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg</code>: first marker after character <code>10</code></li>
+<li><code>zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw</code>: first marker after character <code>11</code></li>
+</ul>
+<h2 id="example"><a href="#example">Example</a></h2>
+<p><strong>How many characters need to be processed before the first start-of-packet
+marker is detected?</strong></p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="macro">assert_eq!</span>(part1(<span class="string">&quot;mjqjpqmgbljsphdztnvjfqwrcgsmlb&quot;</span>), <span class="number">7</span>);
+<span class="macro">assert_eq!</span>(part1(<span class="string">&quot;bvwbjplbgvbhsrlpgdmjqwftvncz&quot;</span>), <span class="number">5</span>);
+<span class="macro">assert_eq!</span>(part1(<span class="string">&quot;nppdvjthqldpwncqszvftbrmjlhg&quot;</span>), <span class="number">6</span>);
+<span class="macro">assert_eq!</span>(part1(<span class="string">&quot;nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg&quot;</span>), <span class="number">10</span>);
+<span class="macro">assert_eq!</span>(part1(<span class="string">&quot;zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw&quot;</span>), <span class="number">11</span>);</code></pre></div>
+</div></details></section></div></main><div id="rustdoc-vars" data-root-path="../" data-current-crate="day06" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>
