@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Part 1"><meta name="keywords" content="rust, rustlang, rust-lang, part1"><title>part1 in day02 - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../normalize.css"><link rel="stylesheet" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../ayu.css" disabled><link rel="stylesheet" href="../dark.css" disabled><link rel="stylesheet" href="../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../storage.js"></script><script defer src="sidebar-items.js"></script><script defer src="../main.js"></script><noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../favicon.svg"></head><body class="rustdoc fn"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../day02/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../day02/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div></a><div class="sidebar-elems"><h2 class="location"><a href="index.html">In day02</a></h2></div></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../day02/index.html"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="main-heading"><h1 class="fqn"><span class="in-band">Function <a href="index.html">day02</a>::<wbr><a class="fn" href="#">part1</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../clipboard.svg" width="19" height="18" alt="Copy item path"></button></span></h1><span class="out-of-band"><a class="srclink" href="../src/day02/lib.rs.html#67-84">source</a> · <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span></div><div class="docblock item-decl"><pre class="rust fn"><code>pub fn part1(data: &amp;<a class="primitive" href="https://doc.rust-lang.org/1.65.0/std/primitive.str.html">str</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/1.65.0/std/primitive.u32.html">u32</a></code></pre></div><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><h2 id="part-1"><a href="#part-1">Part 1</a></h2>
+<p>The second column, you reason, must be what you should play in response: <code>X</code>
+for Rock, <code>Y</code> for Paper, and <code>Z</code> for Scissors. Winning every time would be
+suspicious, so the responses must have been carefully chosen.</p>
+<p>The winner of the whole tournament is the player with the highest score.
+Your total score is the sum of your scores for each round. The score for
+a single round is the score for the shape you selected (1 for Rock, 2 for
+Paper, and 3 for Scissors) plus the score for the outcome of the round (0
+if you lost, 3 if the round was a draw, and 6 if you won).</p>
+<p>Since you can’t be sure if the Elf is trying to help you or trick you, you
+should calculate the score you would get if you were to follow the strategy
+guide.</p>
+<p>For example, suppose you were given the following strategy guide:</p>
+<div class="example-wrap"><pre class="language-text"><code>A Y
+B X
+C Z</code></pre></div>
+<p>This strategy guide predicts and recommends the following:</p>
+<ul>
+<li>In the first round, your opponent will choose Rock (<code>A</code>), and you should choose
+Paper (<code>Y</code>). This ends in a win for you with a score of 8 (2 because you chose
+Paper + 6 because you won).</li>
+<li>In the second round, your opponent will choose Paper (<code>B</code>), and you should choose
+Rock (<code>X</code>). This ends in a loss for you with a score of 1 (1 + 0).</li>
+<li>The third round is a draw with both players choosing Scissors, giving you a score
+of 3 + 3 = 6.</li>
+</ul>
+<p>In this example, if you were to follow the strategy guide, you would get a total score of 15 (8 + 1 + 6).</p>
+<h2 id="example"><a href="#example">Example</a></h2>
+<p><strong>What would your total score be if everything goes exactly according to your strategy guide?</strong></p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">let </span>input = <span class="string">&quot;A Y
+B X
+C Z&quot;</span>;
+
+<span class="kw">let </span>result = part1(input);
+<span class="macro">assert_eq!</span>(result, <span class="number">15</span>);</code></pre></div>
+</div></details></section></div></main><div id="rustdoc-vars" data-root-path="../" data-current-crate="day02" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0 (897e37553 2022-11-02)" ></div></body></html>

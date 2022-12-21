@@ -189,6 +189,12 @@
 <span id="189">189</span>
 <span id="190">190</span>
 <span id="191">191</span>
+<span id="192">192</span>
+<span id="193">193</span>
+<span id="194">194</span>
+<span id="195">195</span>
+<span id="196">196</span>
+<span id="197">197</span>
 </pre><pre class="rust"><code><span class="doccomment">//! # Day 3: Rucksack Reorganization
 //! One Elf has the important job of loading all of the rucksacks with supplies for the
 //! jungle journey. Unfortunately, that Elf didn&#39;t quite follow the packing instructions,
@@ -254,7 +260,7 @@
 /// the priorities of those item types?**
 ///
 /// ```
-/// # use crate::day03::task1;
+/// # use crate::day03::part1;
 ///
 /// let input = &quot;vJrwpWtwJgWrhcsFMMfFFhFp
 /// jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
@@ -263,10 +269,13 @@
 /// ttgJtRGJQctTZtZT
 /// CrZsJsPPZsGzwwsLwLmpwMDw&quot;;
 ///
-/// assert_eq!(task1(input), 157);
+/// assert_eq!(part1(input), 157);
 /// ```
 ///
-</span><span class="kw">pub fn </span>task1(data: <span class="kw-2">&amp;</span>str) -&gt; u32 {
+/// # Panics
+/// This function panics if the input is not valid.
+</span><span class="attribute">#[must_use]
+</span><span class="kw">pub fn </span>part1(data: <span class="kw-2">&amp;</span>str) -&gt; u32 {
     data.lines()
         .map(|content| content.split_at(content.len() / <span class="number">2</span>))
         .map(|(compartment1, compartment2)| {
@@ -326,7 +335,7 @@
 /// of the priorities of those item types?**
 ///
 /// ```
-/// # use crate::day03::task2;
+/// # use crate::day03::part2;
 /// #
 /// let input = &quot;vJrwpWtwJgWrhcsFMMfFFhFp
 /// jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
@@ -335,10 +344,13 @@
 /// ttgJtRGJQctTZtZT
 /// CrZsJsPPZsGzwwsLwLmpwMDw&quot;;
 ///
-/// assert_eq!(task2(input), 70);
+/// assert_eq!(part2(input), 70);
 /// ```
 ///
-</span><span class="kw">pub fn </span>task2(data: <span class="kw-2">&amp;</span>str) -&gt; u32 {
+/// # Panics
+/// This function panics if the input is not valid.
+</span><span class="attribute">#[must_use]
+</span><span class="kw">pub fn </span>part2(data: <span class="kw-2">&amp;</span>str) -&gt; u32 {
     data.lines()
         .collect::&lt;Vec&lt;<span class="kw-2">&amp;</span>str&gt;&gt;()
         .chunks(<span class="number">3</span>)

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":[["task1","Part 1"],["task2","Part 2"]]};
+window.SIDEBAR_ITEMS = {"fn":[["part1","Part 1"],["part2","Part 2"]]};

@@ -156,12 +156,6 @@
 <span id="156">156</span>
 <span id="157">157</span>
 <span id="158">158</span>
-<span id="159">159</span>
-<span id="160">160</span>
-<span id="161">161</span>
-<span id="162">162</span>
-<span id="163">163</span>
-<span id="164">164</span>
 </pre><pre class="rust"><code><span class="doccomment">//! # Day 1: Calorie Counting
 //! Santa&#39;s reindeer typically eat regular reindeer food, but they need
 //! a lot of magical energy to deliver presents on Christmas. For that,
@@ -230,7 +224,7 @@
 /// Find the Elf carrying the most Calories. **How many total Calories is that Elf carrying?**
 ///
 /// ```
-/// # use crate::day01::task1;
+/// # use crate::day01::part1;
 /// #
 /// let input = &quot;1000
 /// 2000
@@ -247,10 +241,11 @@
 ///
 /// 10000&quot;;
 ///
-/// let result = task1(input);
+/// let result = part1(input);
 /// assert_eq!(result, 24000);
 /// ```
-</span><span class="kw">pub fn </span>task1(data: <span class="kw-2">&amp;</span>str) -&gt; u32 {
+</span><span class="attribute">#[must_use]
+</span><span class="kw">pub fn </span>part1(data: <span class="kw-2">&amp;</span>str) -&gt; u32 {
     data.split(<span class="string">&quot;\n\n&quot;</span>)
         .map(|foods| {
             foods
@@ -264,17 +259,26 @@
 
 <span class="doccomment">/// # Part 2
 ///
-/// By the time you calculate the answer to the Elves&#39; question, they&#39;ve already realized that the Elf carrying the most Calories of food might eventually run out of snacks.
+/// By the time you calculate the answer to the Elves&#39; question, they&#39;ve
+/// already realized that the Elf carrying the most Calories of food might
+/// eventually run out of snacks.
 ///
-/// To avoid this unacceptable situation, the Elves would instead like to know the total Calories carried by the top three Elves carrying the most Calories. That way, even if one of those Elves runs out of snacks, they still have two backups.
+/// To avoid this unacceptable situation, the Elves would instead like to know
+/// the total Calories carried by the top three Elves carrying the most
+/// Calories. That way, even if one of those Elves runs out of snacks, they
+/// still have two backups.
 ///
-/// In the example above, the top three Elves are the fourth Elf (with 24000 Calories), then the third Elf (with 11000 Calories), then the fifth Elf (with 10000 Calories). The sum of the Calories carried by these three elves is 45000.
+/// In the example above, the top three Elves are the fourth Elf (with 24000
+/// Calories), then the third Elf (with 11000 Calories), then the fifth Elf
+/// (with 10000 Calories). The sum of the Calories carried by these three elves
+/// is 45000.
 ///
 /// # Example
-/// Find the top three Elves carrying the most Calories. **How many Calories are those Elves carrying in total?**
+/// Find the top three Elves carrying the most Calories. **How many Calories are
+/// those Elves carrying in total?**
 ///
 /// ```
-/// # use crate::day01::task2;
+/// # use crate::day01::part2;
 /// #
 /// let input = &quot;1000
 /// 2000
@@ -291,10 +295,11 @@
 ///
 /// 10000&quot;;
 ///
-/// let result = task2(input);
+/// let result = part2(input);
 /// assert_eq!(result, 45000);
 /// ```
-</span><span class="kw">pub fn </span>task2(data: <span class="kw-2">&amp;</span>str) -&gt; u32 {
+</span><span class="attribute">#[must_use]
+</span><span class="kw">pub fn </span>part2(data: <span class="kw-2">&amp;</span>str) -&gt; u32 {
     <span class="kw">let </span><span class="kw-2">mut </span>calories_of_elves = data
         .split(<span class="string">&quot;\n\n&quot;</span>)
         .map(|foods| {
@@ -305,26 +310,9 @@
         })
         .collect::&lt;Vec&lt;u32&gt;&gt;();
 
-    calories_of_elves.sort();
+    calories_of_elves.sort_unstable();
 
     calories_of_elves.into_iter().rev().take(<span class="number">3</span>).sum::&lt;u32&gt;()
-}
-
-<span class="attribute">#[cfg(test)]
-</span><span class="kw">mod </span>day01 {
-    <span class="kw">use super</span>::<span class="kw-2">*</span>;
-
-    <span class="attribute">#[test]
-    </span><span class="kw">fn </span>test_task1() {
-        <span class="kw">let </span>result = task1(<span class="macro">include_str!</span>(<span class="string">&quot;task.test&quot;</span>));
-        <span class="macro">assert_eq!</span>(result, <span class="number">24000</span>);
-    }
-
-    <span class="attribute">#[test]
-    </span><span class="kw">fn </span>test_task2() {
-        <span class="kw">let </span>result = task2(<span class="macro">include_str!</span>(<span class="string">&quot;task.test&quot;</span>));
-        <span class="macro">assert_eq!</span>(result, <span class="number">45000</span>);
-    }
 }
 </code></pre></div>
 </section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="day01" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0 (897e37553 2022-11-02)" ></div></body></html>

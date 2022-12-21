@@ -272,17 +272,17 @@
 /// **What would your total score be if everything goes exactly according to your strategy guide?**
 ///
 /// ```
-/// # use crate::day02::task1;
+/// # use crate::day02::part1;
 /// #
 /// let input = &quot;A Y
 /// B X
 /// C Z&quot;;
 ///
-/// let result = task1(input);
+/// let result = part1(input);
 /// assert_eq!(result, 15);
 /// ```
-
-</span><span class="kw">pub fn </span>task1(data: <span class="kw-2">&amp;</span>str) -&gt; u32 {
+</span><span class="attribute">#[must_use]
+</span><span class="kw">pub fn </span>part1(data: <span class="kw-2">&amp;</span>str) -&gt; u32 {
     data.lines()
         .map(|round| {
             <span class="kw">match </span>round {
@@ -326,18 +326,18 @@
 /// score be if everything goes exactly according to your strategy guide?**
 ///
 /// ```
-/// # use crate::day02::task2;
+/// # use crate::day02::part2;
 /// #
 /// let input = &quot;A Y
 /// B X
 /// C Z&quot;;
 ///
-/// let result = task2(input);
+/// let result = part2(input);
 /// assert_eq!(result, 12);
 /// ```
 ///
-
-</span><span class="kw">pub fn </span>task2(data: <span class="kw-2">&amp;</span>str) -&gt; u32 {
+</span><span class="attribute">#[must_use]
+</span><span class="kw">pub fn </span>part2(data: <span class="kw-2">&amp;</span>str) -&gt; u32 {
     data.lines()
         .map(|round| {
             <span class="kw">match </span>round {
@@ -361,7 +361,7 @@
     <span class="kw">use super</span>::<span class="kw-2">*</span>;
 
     <span class="attribute">#[test]
-    </span><span class="kw">fn </span>test_task1_all_possible_outcomes() {
+    </span><span class="kw">fn </span>test_part1_all_possible_outcomes() {
         <span class="kw">let </span>rock = <span class="number">1</span>;
         <span class="kw">let </span>paper = <span class="number">2</span>;
         <span class="kw">let </span>scissors = <span class="number">3</span>;
@@ -369,36 +369,36 @@
         <span class="kw">let </span>draw = <span class="number">3</span>;
         <span class="kw">let </span>win = <span class="number">6</span>;
 
-        <span class="kw">let </span>rock_vs_rock = task1(<span class="string">&quot;A X&quot;</span>);
+        <span class="kw">let </span>rock_vs_rock = part1(<span class="string">&quot;A X&quot;</span>);
         <span class="macro">assert_eq!</span>(rock_vs_rock, rock + draw);
 
-        <span class="kw">let </span>rock_vs_paper = task1(<span class="string">&quot;A Y&quot;</span>);
+        <span class="kw">let </span>rock_vs_paper = part1(<span class="string">&quot;A Y&quot;</span>);
         <span class="macro">assert_eq!</span>(rock_vs_paper, paper + win);
 
-        <span class="kw">let </span>rock_vs_scissors = task1(<span class="string">&quot;A Z&quot;</span>);
+        <span class="kw">let </span>rock_vs_scissors = part1(<span class="string">&quot;A Z&quot;</span>);
         <span class="macro">assert_eq!</span>(rock_vs_scissors, scissors + loose);
 
-        <span class="kw">let </span>paper_vs_rock = task1(<span class="string">&quot;B X&quot;</span>);
+        <span class="kw">let </span>paper_vs_rock = part1(<span class="string">&quot;B X&quot;</span>);
         <span class="macro">assert_eq!</span>(paper_vs_rock, rock + loose);
 
-        <span class="kw">let </span>paper_vs_paper = task1(<span class="string">&quot;B Y&quot;</span>);
+        <span class="kw">let </span>paper_vs_paper = part1(<span class="string">&quot;B Y&quot;</span>);
         <span class="macro">assert_eq!</span>(paper_vs_paper, paper + draw);
 
-        <span class="kw">let </span>paper_vs_scissors = task1(<span class="string">&quot;B Z&quot;</span>);
+        <span class="kw">let </span>paper_vs_scissors = part1(<span class="string">&quot;B Z&quot;</span>);
         <span class="macro">assert_eq!</span>(paper_vs_scissors, scissors + win);
 
-        <span class="kw">let </span>scissors_vs_rock = task1(<span class="string">&quot;C X&quot;</span>);
+        <span class="kw">let </span>scissors_vs_rock = part1(<span class="string">&quot;C X&quot;</span>);
         <span class="macro">assert_eq!</span>(scissors_vs_rock, rock + win);
 
-        <span class="kw">let </span>scissors_vs_paper = task1(<span class="string">&quot;C Y&quot;</span>);
+        <span class="kw">let </span>scissors_vs_paper = part1(<span class="string">&quot;C Y&quot;</span>);
         <span class="macro">assert_eq!</span>(scissors_vs_paper, paper + loose);
 
-        <span class="kw">let </span>scissors_vs_scissors = task1(<span class="string">&quot;C Z&quot;</span>);
+        <span class="kw">let </span>scissors_vs_scissors = part1(<span class="string">&quot;C Z&quot;</span>);
         <span class="macro">assert_eq!</span>(scissors_vs_scissors, scissors + draw);
     }
 
     <span class="attribute">#[test]
-    </span><span class="kw">fn </span>test_task2_all_possible_outcomes() {
+    </span><span class="kw">fn </span>test_part2_all_possible_outcomes() {
         <span class="kw">let </span>rock = <span class="number">1</span>;
         <span class="kw">let </span>paper = <span class="number">2</span>;
         <span class="kw">let </span>scissors = <span class="number">3</span>;
@@ -406,31 +406,31 @@
         <span class="kw">let </span>draw = <span class="number">3</span>;
         <span class="kw">let </span>win = <span class="number">6</span>;
 
-        <span class="kw">let </span>rock_and_loose = task2(<span class="string">&quot;A X&quot;</span>);
+        <span class="kw">let </span>rock_and_loose = part2(<span class="string">&quot;A X&quot;</span>);
         <span class="macro">assert_eq!</span>(rock_and_loose, scissors + loose);
 
-        <span class="kw">let </span>rock_and_draw = task2(<span class="string">&quot;A Y&quot;</span>);
+        <span class="kw">let </span>rock_and_draw = part2(<span class="string">&quot;A Y&quot;</span>);
         <span class="macro">assert_eq!</span>(rock_and_draw, rock + draw);
 
-        <span class="kw">let </span>rock_and_win = task2(<span class="string">&quot;A Z&quot;</span>);
+        <span class="kw">let </span>rock_and_win = part2(<span class="string">&quot;A Z&quot;</span>);
         <span class="macro">assert_eq!</span>(rock_and_win, paper + win);
 
-        <span class="kw">let </span>paper_and_loose = task2(<span class="string">&quot;B X&quot;</span>);
+        <span class="kw">let </span>paper_and_loose = part2(<span class="string">&quot;B X&quot;</span>);
         <span class="macro">assert_eq!</span>(paper_and_loose, rock + loose);
 
-        <span class="kw">let </span>paper_and_draw = task2(<span class="string">&quot;B Y&quot;</span>);
+        <span class="kw">let </span>paper_and_draw = part2(<span class="string">&quot;B Y&quot;</span>);
         <span class="macro">assert_eq!</span>(paper_and_draw, paper + draw);
 
-        <span class="kw">let </span>paper_and_win = task2(<span class="string">&quot;B Z&quot;</span>);
+        <span class="kw">let </span>paper_and_win = part2(<span class="string">&quot;B Z&quot;</span>);
         <span class="macro">assert_eq!</span>(paper_and_win, scissors + win);
 
-        <span class="kw">let </span>scissors_and_loose = task2(<span class="string">&quot;C X&quot;</span>);
+        <span class="kw">let </span>scissors_and_loose = part2(<span class="string">&quot;C X&quot;</span>);
         <span class="macro">assert_eq!</span>(scissors_and_loose, paper + loose);
 
-        <span class="kw">let </span>scissors_and_draw = task2(<span class="string">&quot;C Y&quot;</span>);
+        <span class="kw">let </span>scissors_and_draw = part2(<span class="string">&quot;C Y&quot;</span>);
         <span class="macro">assert_eq!</span>(scissors_and_draw, scissors + draw);
 
-        <span class="kw">let </span>scissors_and_win = task2(<span class="string">&quot;C Z&quot;</span>);
+        <span class="kw">let </span>scissors_and_win = part2(<span class="string">&quot;C Z&quot;</span>);
         <span class="macro">assert_eq!</span>(scissors_and_win, rock + win);
     }
 }

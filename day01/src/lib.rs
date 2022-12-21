@@ -156,20 +156,3 @@ pub fn part2(data: &str) -> u32 {
 
     calories_of_elves.into_iter().rev().take(3).sum::<u32>()
 }
-
-#[cfg(test)]
-mod day01 {
-    use super::*;
-
-    #[test]
-    fn test_part1() {
-        let result = part1(include_str!("task.test"));
-        assert_eq!(result, 24000);
-    }
-
-    #[test]
-    fn test_part2() {
-        let result = part2(include_str!("task.test"));
-        assert_eq!(result, 45000);
-    }
-}

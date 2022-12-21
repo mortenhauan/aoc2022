@@ -61,6 +61,20 @@ fn main() {
     let duration = task_timer.elapsed();
     println!("Time used on Day 04: {:?}", duration);
 
+    // Day 05
+    let task_timer = Instant::now();
+    println!("\n{}", "Day 5".green().bold());
+    println!(
+        "Part 1: {}",
+        day05::part1(include_str!("../input/day05.txt"))
+    );
+    println!(
+        "Part 2: {}",
+        day05::part2(include_str!("../input/day05.txt"))
+    );
+    let duration = task_timer.elapsed();
+    println!("Time used on Day 05: {:?}", duration);
+
     // Summary
     let duration = calendar_timer.elapsed();
     println!("\nTime used on Advent of Code 2022: {:?}", duration);

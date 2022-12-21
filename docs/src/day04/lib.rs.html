@@ -168,6 +168,8 @@
 <span id="168">168</span>
 <span id="169">169</span>
 <span id="170">170</span>
+<span id="171">171</span>
+<span id="172">172</span>
 </pre><pre class="rust"><code><span class="doccomment">//! # Day 4: Camp Cleanup
 //! Space needs to be cleared before the last supplies can be unloaded from the ships,
 //! and so several Elves have been assigned the job of cleaning up sections of the
@@ -252,7 +254,7 @@
 /// **In how many assignment pairs does one range fully contain the other?**
 ///
 /// ```
-/// # use crate::day04::task1;
+/// # use crate::day04::part1;
 /// #
 /// let input = &quot;2-4,6-8
 /// 2-3,4-5
@@ -261,9 +263,10 @@
 /// 6-6,4-6
 /// 2-6,4-8&quot;;
 ///
-/// assert_eq!(task1(input), 2);
+/// assert_eq!(part1(input), 2);
 /// ```
-</span><span class="kw">pub fn </span>task1(data: <span class="kw-2">&amp;</span>str) -&gt; usize {
+</span><span class="attribute">#[must_use]
+</span><span class="kw">pub fn </span>part1(data: <span class="kw-2">&amp;</span>str) -&gt; usize {
     data.lines()
         .filter(|assignment| overlap(assignment, <span class="bool-val">true</span>))
         .count()
@@ -287,7 +290,7 @@
 /// **In how many assignment pairs do the ranges overlap?**
 ///
 /// ```
-/// # use crate::day04::task2;
+/// # use crate::day04::part2;
 /// #
 /// let input = &quot;2-4,6-8
 /// 2-3,4-5
@@ -296,8 +299,9 @@
 /// 6-6,4-6
 /// 2-6,4-8&quot;;
 ///
-/// assert_eq!(task2(input), 4);
-</span><span class="kw">pub fn </span>task2(data: <span class="kw-2">&amp;</span>str) -&gt; usize {
+/// assert_eq!(part2(input), 4);
+</span><span class="attribute">#[must_use]
+</span><span class="kw">pub fn </span>part2(data: <span class="kw-2">&amp;</span>str) -&gt; usize {
     data.lines()
         .filter(|assignment| overlap(assignment, <span class="bool-val">false</span>))
         .count()

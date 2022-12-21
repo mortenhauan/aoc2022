@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Part 2"><meta name="keywords" content="rust, rustlang, rust-lang, part2"><title>part2 in day03 - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../normalize.css"><link rel="stylesheet" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../ayu.css" disabled><link rel="stylesheet" href="../dark.css" disabled><link rel="stylesheet" href="../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../storage.js"></script><script defer src="sidebar-items.js"></script><script defer src="../main.js"></script><noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../favicon.svg"></head><body class="rustdoc fn"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../day03/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../day03/index.html"><div class="logo-container"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></div></a><div class="sidebar-elems"><h2 class="location"><a href="index.html">In day03</a></h2></div></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../day03/index.html"><img class="rust-logo" src="../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="main-heading"><h1 class="fqn"><span class="in-band">Function <a href="index.html">day03</a>::<wbr><a class="fn" href="#">part2</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../clipboard.svg" width="19" height="18" alt="Copy item path"></button></span></h1><span class="out-of-band"><a class="srclink" href="../src/day03/lib.rs.html#156-168">source</a> · <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span></div><div class="docblock item-decl"><pre class="rust fn"><code>pub fn part2(data: &amp;<a class="primitive" href="https://doc.rust-lang.org/1.65.0/std/primitive.str.html">str</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/1.65.0/std/primitive.u32.html">u32</a></code></pre></div><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><h2 id="part-2"><a href="#part-2">Part 2</a></h2>
+<p>As you finish identifying the misplaced items, the Elves come to you with another issue.</p>
+<p>For safety, the Elves are divided into groups of three. Every Elf carries a badge that
+identifies their group. For efficiency, within each group of three Elves, the badge is
+the only item type carried by all three Elves. That is, if a group’s badge is item type <code>B</code>,
+then all three Elves will have item type <code>B</code> somewhere in their rucksack, and at most two of
+the Elves will be carrying any other item type.</p>
+<p>The problem is that someone forgot to put this year’s updated authenticity sticker on the
+badges. All of the badges need to be pulled out of the rucksacks so the new authenticity
+stickers can be attached.</p>
+<p>Additionally, nobody wrote down which item type corresponds to each group’s badges. The
+only way to tell which item type is the right one is by finding the one item type that is
+common between all three Elves in each group.</p>
+<p>Every set of three lines in your list corresponds to a single group, but each group can
+have a different badge item type. So, in the above example, the first group’s rucksacks
+are the first three lines:</p>
+<div class="example-wrap"><pre class="language-text"><code>vJrwpWtwJgWrhcsFMMfFFhFp
+jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+PmmdzqPrVvPwwTWBwg</code></pre></div>
+<p>And the second group’s rucksacks are the next three lines:</p>
+<div class="example-wrap"><pre class="language-text"><code>wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+ttgJtRGJQctTZtZT
+CrZsJsPPZsGzwwsLwLmpwMDw</code></pre></div>
+<p>In the first group, the only item type that appears in all three rucksacks is lowercase <code>r</code>;
+this must be their badges. In the second group, their badge item type must be <code>Z</code>.</p>
+<p>Priorities for these items must still be found to organize the sticker attachment efforts:
+here, they are 18 (<code>r</code>) for the first group and 52 (<code>Z</code>) for the second group. The sum of these is <code>70</code>.</p>
+<h2 id="example"><a href="#example">Example</a></h2>
+<p>Find the item type that corresponds to the badges of each three-Elf group. <strong>What is the sum
+of the priorities of those item types?</strong></p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">let </span>input = <span class="string">&quot;vJrwpWtwJgWrhcsFMMfFFhFp
+jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+PmmdzqPrVvPwwTWBwg
+wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+ttgJtRGJQctTZtZT
+CrZsJsPPZsGzwwsLwLmpwMDw&quot;</span>;
+
+<span class="macro">assert_eq!</span>(part2(input), <span class="number">70</span>);</code></pre></div>
+<h2 id="panics"><a href="#panics">Panics</a></h2>
+<p>This function panics if the input is not valid.</p>
+</div></details></section></div></main><div id="rustdoc-vars" data-root-path="../" data-current-crate="day03" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.65.0 (897e37553 2022-11-02)" ></div></body></html>
