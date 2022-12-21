@@ -54,17 +54,17 @@
 /// **What would your total score be if everything goes exactly according to your strategy guide?**
 ///
 /// ```
-/// # use crate::day02::task1;
+/// # use crate::day02::part1;
 /// #
 /// let input = "A Y
 /// B X
 /// C Z";
 ///
-/// let result = task1(input);
+/// let result = part1(input);
 /// assert_eq!(result, 15);
 /// ```
 
-pub fn task1(data: &str) -> u32 {
+pub fn part1(data: &str) -> u32 {
     data.lines()
         .map(|round| {
             match round {
@@ -108,18 +108,18 @@ pub fn task1(data: &str) -> u32 {
 /// score be if everything goes exactly according to your strategy guide?**
 ///
 /// ```
-/// # use crate::day02::task2;
+/// # use crate::day02::part2;
 /// #
 /// let input = "A Y
 /// B X
 /// C Z";
 ///
-/// let result = task2(input);
+/// let result = part2(input);
 /// assert_eq!(result, 12);
 /// ```
 ///
 
-pub fn task2(data: &str) -> u32 {
+pub fn part2(data: &str) -> u32 {
     data.lines()
         .map(|round| {
             match round {
@@ -143,7 +143,7 @@ mod day02 {
     use super::*;
 
     #[test]
-    fn test_task1_all_possible_outcomes() {
+    fn test_part1_all_possible_outcomes() {
         let rock = 1;
         let paper = 2;
         let scissors = 3;
@@ -151,36 +151,36 @@ mod day02 {
         let draw = 3;
         let win = 6;
 
-        let rock_vs_rock = task1("A X");
+        let rock_vs_rock = part1("A X");
         assert_eq!(rock_vs_rock, rock + draw);
 
-        let rock_vs_paper = task1("A Y");
+        let rock_vs_paper = part1("A Y");
         assert_eq!(rock_vs_paper, paper + win);
 
-        let rock_vs_scissors = task1("A Z");
+        let rock_vs_scissors = part1("A Z");
         assert_eq!(rock_vs_scissors, scissors + loose);
 
-        let paper_vs_rock = task1("B X");
+        let paper_vs_rock = part1("B X");
         assert_eq!(paper_vs_rock, rock + loose);
 
-        let paper_vs_paper = task1("B Y");
+        let paper_vs_paper = part1("B Y");
         assert_eq!(paper_vs_paper, paper + draw);
 
-        let paper_vs_scissors = task1("B Z");
+        let paper_vs_scissors = part1("B Z");
         assert_eq!(paper_vs_scissors, scissors + win);
 
-        let scissors_vs_rock = task1("C X");
+        let scissors_vs_rock = part1("C X");
         assert_eq!(scissors_vs_rock, rock + win);
 
-        let scissors_vs_paper = task1("C Y");
+        let scissors_vs_paper = part1("C Y");
         assert_eq!(scissors_vs_paper, paper + loose);
 
-        let scissors_vs_scissors = task1("C Z");
+        let scissors_vs_scissors = part1("C Z");
         assert_eq!(scissors_vs_scissors, scissors + draw);
     }
 
     #[test]
-    fn test_task2_all_possible_outcomes() {
+    fn test_part2_all_possible_outcomes() {
         let rock = 1;
         let paper = 2;
         let scissors = 3;
@@ -188,31 +188,31 @@ mod day02 {
         let draw = 3;
         let win = 6;
 
-        let rock_and_loose = task2("A X");
+        let rock_and_loose = part2("A X");
         assert_eq!(rock_and_loose, scissors + loose);
 
-        let rock_and_draw = task2("A Y");
+        let rock_and_draw = part2("A Y");
         assert_eq!(rock_and_draw, rock + draw);
 
-        let rock_and_win = task2("A Z");
+        let rock_and_win = part2("A Z");
         assert_eq!(rock_and_win, paper + win);
 
-        let paper_and_loose = task2("B X");
+        let paper_and_loose = part2("B X");
         assert_eq!(paper_and_loose, rock + loose);
 
-        let paper_and_draw = task2("B Y");
+        let paper_and_draw = part2("B Y");
         assert_eq!(paper_and_draw, paper + draw);
 
-        let paper_and_win = task2("B Z");
+        let paper_and_win = part2("B Z");
         assert_eq!(paper_and_win, scissors + win);
 
-        let scissors_and_loose = task2("C X");
+        let scissors_and_loose = part2("C X");
         assert_eq!(scissors_and_loose, paper + loose);
 
-        let scissors_and_draw = task2("C Y");
+        let scissors_and_draw = part2("C Y");
         assert_eq!(scissors_and_draw, scissors + draw);
 
-        let scissors_and_win = task2("C Z");
+        let scissors_and_win = part2("C Z");
         assert_eq!(scissors_and_win, rock + win);
     }
 }

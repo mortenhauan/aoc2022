@@ -63,7 +63,7 @@ fn priority(item: char) -> u32 {
 /// the priorities of those item types?**
 ///
 /// ```
-/// # use crate::day03::task1;
+/// # use crate::day03::part1;
 ///
 /// let input = "vJrwpWtwJgWrhcsFMMfFFhFp
 /// jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
@@ -72,10 +72,10 @@ fn priority(item: char) -> u32 {
 /// ttgJtRGJQctTZtZT
 /// CrZsJsPPZsGzwwsLwLmpwMDw";
 ///
-/// assert_eq!(task1(input), 157);
+/// assert_eq!(part1(input), 157);
 /// ```
 ///
-pub fn task1(data: &str) -> u32 {
+pub fn part1(data: &str) -> u32 {
     data.lines()
         .map(|content| content.split_at(content.len() / 2))
         .map(|(compartment1, compartment2)| {
@@ -135,7 +135,7 @@ pub fn task1(data: &str) -> u32 {
 /// of the priorities of those item types?**
 ///
 /// ```
-/// # use crate::day03::task2;
+/// # use crate::day03::part2;
 /// #
 /// let input = "vJrwpWtwJgWrhcsFMMfFFhFp
 /// jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
@@ -144,10 +144,10 @@ pub fn task1(data: &str) -> u32 {
 /// ttgJtRGJQctTZtZT
 /// CrZsJsPPZsGzwwsLwLmpwMDw";
 ///
-/// assert_eq!(task2(input), 70);
+/// assert_eq!(part2(input), 70);
 /// ```
 ///
-pub fn task2(data: &str) -> u32 {
+pub fn part2(data: &str) -> u32 {
     data.lines()
         .collect::<Vec<&str>>()
         .chunks(3)

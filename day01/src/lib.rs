@@ -66,7 +66,7 @@
 /// Find the Elf carrying the most Calories. **How many total Calories is that Elf carrying?**
 ///
 /// ```
-/// # use crate::day01::task1;
+/// # use crate::day01::part1;
 /// #
 /// let input = "1000
 /// 2000
@@ -83,10 +83,10 @@
 ///
 /// 10000";
 ///
-/// let result = task1(input);
+/// let result = part1(input);
 /// assert_eq!(result, 24000);
 /// ```
-pub fn task1(data: &str) -> u32 {
+pub fn part1(data: &str) -> u32 {
     data.split("\n\n")
         .map(|foods| {
             foods
@@ -110,7 +110,7 @@ pub fn task1(data: &str) -> u32 {
 /// Find the top three Elves carrying the most Calories. **How many Calories are those Elves carrying in total?**
 ///
 /// ```
-/// # use crate::day01::task2;
+/// # use crate::day01::part2;
 /// #
 /// let input = "1000
 /// 2000
@@ -127,10 +127,10 @@ pub fn task1(data: &str) -> u32 {
 ///
 /// 10000";
 ///
-/// let result = task2(input);
+/// let result = part2(input);
 /// assert_eq!(result, 45000);
 /// ```
-pub fn task2(data: &str) -> u32 {
+pub fn part2(data: &str) -> u32 {
     let mut calories_of_elves = data
         .split("\n\n")
         .map(|foods| {
@@ -151,14 +151,14 @@ mod day01 {
     use super::*;
 
     #[test]
-    fn test_task1() {
-        let result = task1(include_str!("task.test"));
+    fn test_part1() {
+        let result = part1(include_str!("task.test"));
         assert_eq!(result, 24000);
     }
 
     #[test]
-    fn test_task2() {
-        let result = task2(include_str!("task.test"));
+    fn test_part2() {
+        let result = part2(include_str!("task.test"));
         assert_eq!(result, 45000);
     }
 }

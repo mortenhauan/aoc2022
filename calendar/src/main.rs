@@ -9,12 +9,12 @@ fn main() {
     let task_timer = Instant::now();
     println!("\n{}", "Day 1".green().bold());
     println!(
-        "Task1: {}",
-        day01::task1(include_str!("../input/day01.txt"))
+        "Part 1: {}",
+        day01::part1(include_str!("../input/day01.txt"))
     );
     println!(
-        "Task2: {}",
-        day01::task2(include_str!("../input/day01.txt"))
+        "Part 2: {}",
+        day01::part2(include_str!("../input/day01.txt"))
     );
     let duration = task_timer.elapsed();
     println!("Time used on Day 01: {:?}", duration);
@@ -23,12 +23,12 @@ fn main() {
     let task_timer = Instant::now();
     println!("\n{}", "Day 2".green().bold());
     println!(
-        "Task1: {}",
-        day02::task1(include_str!("../input/day02.txt"))
+        "Part 1: {}",
+        day02::part1(include_str!("../input/day02.txt"))
     );
     println!(
-        "Task2: {}",
-        day02::task2(include_str!("../input/day02.txt"))
+        "Part 2: {}",
+        day02::part2(include_str!("../input/day02.txt"))
     );
     let duration = task_timer.elapsed();
     println!("Time used on Day 02: {:?}", duration);
@@ -37,12 +37,12 @@ fn main() {
     let task_timer = Instant::now();
     println!("\n{}", "Day 3".green().bold());
     println!(
-        "Task1: {}",
-        day03::task1(include_str!("../input/day03.txt"))
+        "Part 1: {}",
+        day03::part1(include_str!("../input/day03.txt"))
     );
     println!(
-        "Task2: {}",
-        day03::task2(include_str!("../input/day03.txt"))
+        "Part 2: {}",
+        day03::part2(include_str!("../input/day03.txt"))
     );
     let duration = task_timer.elapsed();
     println!("Time used on Day 03: {:?}", duration);
@@ -51,12 +51,12 @@ fn main() {
     let task_timer = Instant::now();
     println!("\n{}", "Day 4".green().bold());
     println!(
-        "Task1: {}",
-        day04::task1(include_str!("../input/day04.txt"))
+        "Part 1: {}",
+        day04::part1(include_str!("../input/day04.txt"))
     );
     println!(
-        "Task2: {}",
-        day04::task2(include_str!("../input/day04.txt"))
+        "Part 2: {}",
+        day04::part2(include_str!("../input/day04.txt"))
     );
     let duration = task_timer.elapsed();
     println!("Time used on Day 04: {:?}", duration);

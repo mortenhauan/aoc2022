@@ -82,7 +82,7 @@ fn overlap(assignment: &str, completely: bool) -> bool {
 /// **In how many assignment pairs does one range fully contain the other?**
 ///
 /// ```
-/// # use crate::day04::task1;
+/// # use crate::day04::part1;
 /// #
 /// let input = "2-4,6-8
 /// 2-3,4-5
@@ -91,9 +91,9 @@ fn overlap(assignment: &str, completely: bool) -> bool {
 /// 6-6,4-6
 /// 2-6,4-8";
 ///
-/// assert_eq!(task1(input), 2);
+/// assert_eq!(part1(input), 2);
 /// ```
-pub fn task1(data: &str) -> usize {
+pub fn part1(data: &str) -> usize {
     data.lines()
         .filter(|assignment| overlap(assignment, true))
         .count()
@@ -117,7 +117,7 @@ pub fn task1(data: &str) -> usize {
 /// **In how many assignment pairs do the ranges overlap?**
 ///
 /// ```
-/// # use crate::day04::task2;
+/// # use crate::day04::part2;
 /// #
 /// let input = "2-4,6-8
 /// 2-3,4-5
@@ -126,8 +126,8 @@ pub fn task1(data: &str) -> usize {
 /// 6-6,4-6
 /// 2-6,4-8";
 ///
-/// assert_eq!(task2(input), 4);
-pub fn task2(data: &str) -> usize {
+/// assert_eq!(part2(input), 4);
+pub fn part2(data: &str) -> usize {
     data.lines()
         .filter(|assignment| overlap(assignment, false))
         .count()
