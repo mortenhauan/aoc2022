@@ -86,6 +86,7 @@
 /// let result = part1(input);
 /// assert_eq!(result, 24000);
 /// ```
+#[must_use]
 pub fn part1(data: &str) -> u32 {
     data.split("\n\n")
         .map(|foods| {
@@ -130,6 +131,7 @@ pub fn part1(data: &str) -> u32 {
 /// let result = part2(input);
 /// assert_eq!(result, 45000);
 /// ```
+#[must_use]
 pub fn part2(data: &str) -> u32 {
     let mut calories_of_elves = data
         .split("\n\n")
@@ -141,7 +143,7 @@ pub fn part2(data: &str) -> u32 {
         })
         .collect::<Vec<u32>>();
 
-    calories_of_elves.sort();
+    calories_of_elves.sort_unstable();
 
     calories_of_elves.into_iter().rev().take(3).sum::<u32>()
 }

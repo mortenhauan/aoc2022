@@ -75,6 +75,9 @@ fn priority(item: char) -> u32 {
 /// assert_eq!(part1(input), 157);
 /// ```
 ///
+/// # Panics
+/// This function panics if the input is not valid.
+#[must_use]
 pub fn part1(data: &str) -> u32 {
     data.lines()
         .map(|content| content.split_at(content.len() / 2))
@@ -147,6 +150,9 @@ pub fn part1(data: &str) -> u32 {
 /// assert_eq!(part2(input), 70);
 /// ```
 ///
+/// # Panics
+/// This function panics if the input is not valid.
+#[must_use]
 pub fn part2(data: &str) -> u32 {
     data.lines()
         .collect::<Vec<&str>>()

@@ -93,6 +93,7 @@ fn overlap(assignment: &str, completely: bool) -> bool {
 ///
 /// assert_eq!(part1(input), 2);
 /// ```
+#[must_use]
 pub fn part1(data: &str) -> usize {
     data.lines()
         .filter(|assignment| overlap(assignment, true))
@@ -127,6 +128,7 @@ pub fn part1(data: &str) -> usize {
 /// 2-6,4-8";
 ///
 /// assert_eq!(part2(input), 4);
+#[must_use]
 pub fn part2(data: &str) -> usize {
     data.lines()
         .filter(|assignment| overlap(assignment, false))

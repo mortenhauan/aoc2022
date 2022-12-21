@@ -63,7 +63,7 @@
 /// let result = part1(input);
 /// assert_eq!(result, 15);
 /// ```
-
+#[must_use]
 pub fn part1(data: &str) -> u32 {
     data.lines()
         .map(|round| {
@@ -118,7 +118,7 @@ pub fn part1(data: &str) -> u32 {
 /// assert_eq!(result, 12);
 /// ```
 ///
-
+#[must_use]
 pub fn part2(data: &str) -> u32 {
     data.lines()
         .map(|round| {
